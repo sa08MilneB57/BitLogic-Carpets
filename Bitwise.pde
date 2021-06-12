@@ -88,6 +88,4 @@ void draw() {
     }
   }
   updatePixels();
-  
-  if(frameCount>256*256){noLoop();println("STAHP");}
 }
