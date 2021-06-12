@@ -11,12 +11,7 @@ void keyPressed(){
   if(key=='s' && loop2>1){loop2--;}
   if(key=='e'){loop3++;}
   if(key=='d' && loop3>1){loop3--;}
-  if(key==' '){println("=======================================",
-                     "\nFrame:",frameCount,
-                     "\tFrames Left:",256*256-frameCount,
-                     "\tPercent Complete:",100f*frameCount/(256*256),"%",
-                     "\nfps:",frameRate,
-                     "\tEstimated Time Remaining:",(256*256-frameCount)/(60*frameRate));}
+  if(key==' '){saveFrame("screenshots/bitcarpet######.png");}
 }
 
 void hilbertColors(){
@@ -81,7 +76,7 @@ void draw() {
   stroke(loop1,loop2,loop3);
   fill(loop1,loop2,loop3);
   textAlign(LEFT);
-  text("q/a control Red/XOR\nw/s control Green/AND\ne/d control Blue/OR\n\nValues greater than 1024 will\nmostly be boring.",
+  text("q/a control Red/XOR\nw/s control Green/AND\ne/d control Blue/OR\nSpacebar to save a screenshot.\n\nValues greater than 1024 will\nmostly be boring.",
        1024+470,leftSidebarSlide);
   
   rect(446,23,1026,height-55);
@@ -93,8 +88,6 @@ void draw() {
     }
   }
   updatePixels();
-  
-  saveFrame("frames/bitcarpets#######.png");
   
   if(frameCount>256*256){noLoop();println("STAHP");}
 }
